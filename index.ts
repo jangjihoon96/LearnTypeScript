@@ -28,3 +28,30 @@ class User {
     this.name = name;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                     2강                                     */
+/* -------------------------------------------------------------------------- */
+
+let 이름2: string = "kim";
+let 나이2: number = 28;
+let 결혼했니: boolean = true;
+let 지정안함: undefined = undefined; // null도 있음
+let 회원들: string[] = ["kim", "park"];
+let 회원2: { name: string; age: number } = { name: "kim", age: 26 };
+let 회원3 = "park"; // 무조건 지정을 안해줘도 알아서 타입이 지정됨
+
+let 내이름: string = "장지훈";
+let 내나이: number = 28;
+let 내가사는곳 = "서울시 강남구";
+
+let 내가좋아하는가수: { name: string; song: string } = {
+  name: "파테코",
+  song: "rainy day",
+};
+
+let project: { member: string[]; days: number; started: boolean } = {
+  member: ["kim", "park"],
+  days: 30,
+  started: true,
+};
