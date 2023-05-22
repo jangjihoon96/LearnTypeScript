@@ -98,3 +98,61 @@ let 학교: {
 };
 학교.score[4] = false;
 학교.friend = ["Lee", 학교.teacher];
+
+/* -------------------------------------------------------------------------- */
+/*                                     4강                                     */
+/* -------------------------------------------------------------------------- */
+
+// 타입지정된 파라미터는 필수임 (js와 다름)
+function 함수4(x: number): number {
+  return x * 2;
+}
+함수4(20);
+
+const 함수44 = (x: number): number => {
+  return x * 2;
+};
+
+// void (텅 비어있다는 의미)
+// return을 하고싶지 않을경우(하면 안되는 경우) 사용
+function 함수void(x: number): void {
+  1 + 1;
+}
+
+// 파라미터를 안쓰고 싶을때 옵셔널체이닝을 사용하거나 undefined 사용
+// 밑에 두개는 같은 의미
+function 함수파라미터옵션(x?: number): void {
+  2 + 2;
+}
+function 함수파라미터옵션2(x: number | undefined): void {
+  2 + 2;
+}
+
+function 콘솔인사(x?: string): void {
+  if (x) {
+    console.log(`안녕하세요 ${x}`);
+  } else {
+    console.log("이름이 없습니다.");
+  }
+}
+
+function 자릿수(a: string | number): number {
+  return a.toString().length;
+}
+
+function 결혼가능(money: number, house: boolean, charm: string): string | void {
+  let score: number = 0;
+  score += money;
+  if (house === true) {
+    score += 500;
+  }
+  if (charm === "상") {
+    score += 100;
+  }
+  if (score >= 600) {
+    return "결혼가능";
+  } else {
+    return "결혼불가";
+  }
+}
+console.log(결혼가능(700, false, "상"));
