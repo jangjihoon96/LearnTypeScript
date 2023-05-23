@@ -366,3 +366,61 @@ let callbackCutAndDash: CallbackCutAndDashType = (string, zero, dash) => {
   return result2;
 };
 callbackCutAndDash("0323-1", cutZero, removeDash);
+
+/* -------------------------------------------------------------------------- */
+/*                                     9강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+// HTML 조작시 narrowing 하는 방법 5개
+// 방법1 - null 체크하기
+let title1 = document.querySelector("#title");
+if (title1 != null) {
+  title1.innerHTML = "하이요";
+}
+// 방법2 - instanceof 연산자 (가장 많이 쓸거임)
+let title2 = document.querySelector("#title");
+if (title2 instanceof Element) {
+  title2.innerHTML = "하이요";
+}
+// 방법3 - as 로 확정짓기 (확실할때만 사용)
+let title3 = document.querySelector("#title") as Element;
+title3.innerHTML = "하이요";
+// 방법4 - 옵셔널 체이닝 사용하기
+let title4 = document.querySelector("#title");
+if (title4?.innerHTML) {
+  title4.innerHTML = "하이요";
+}
+// 방법5 - tsconfig.json 에서 strict 모드 끄기
+
+// 링크 href 조작하기
+let link = document.querySelector(".link");
+if (link instanceof HTMLAnchorElement) {
+  link.href = "https://kakao.com";
+}
+
+// 버튼 event 조작하기
+let button = document.querySelector("#button");
+button?.addEventListener("click", () => {
+  console.log("Click !!");
+});
+
+// 숙제1
+let image1 = document.querySelector(".image1");
+let changeButton = document.querySelector(".changeButton");
+changeButton?.addEventListener("click", () => {
+  if (image1 instanceof HTMLImageElement) {
+    image1.src =
+      "https://src.hidoc.co.kr/image/lib/2022/5/12/1652337370806_0.jpg";
+    image1.alt = "고양이";
+  }
+});
+
+// 숙제2
+let allLink = document.querySelectorAll(".naver");
+allLink.forEach((link) => {
+  if (link instanceof HTMLAnchorElement) {
+    link.href = "https://kakao.com";
+    link.innerHTML = "전부 카카오로 바뀜";
+  }
+});

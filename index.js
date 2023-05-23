@@ -254,3 +254,55 @@ var callbackCutAndDash = function (string, zero, dash) {
     return result2;
 };
 callbackCutAndDash("0323-1", cutZero, removeDash);
+/* -------------------------------------------------------------------------- */
+/*                                     9강                                     */
+/* ----------------------------------------------------------------------
+---- */
+// HTML 조작시 narrowing 하는 방법 5개
+// 방법1 - null 체크하기
+var title1 = document.querySelector("#title");
+if (title1 != null) {
+    title1.innerHTML = "하이요";
+}
+// 방법2 - instanceof 연산자 (가장 많이 쓸거임)
+var title2 = document.querySelector("#title");
+if (title2 instanceof Element) {
+    title2.innerHTML = "하이요";
+}
+// 방법3 - as 로 확정짓기 (확실할때만 사용)
+var title3 = document.querySelector("#title");
+title3.innerHTML = "하이요";
+// 방법4 - 옵셔널 체이닝 사용하기
+var title4 = document.querySelector("#title");
+if (title4 === null || title4 === void 0 ? void 0 : title4.innerHTML) {
+    title4.innerHTML = "하이요";
+}
+// 방법5 - tsconfig.json 에서 strict 모드 끄기
+// 링크 href 조작하기
+var link = document.querySelector(".link");
+if (link instanceof HTMLAnchorElement) {
+    link.href = "https://kakao.com";
+}
+// 버튼 event 조작하기
+var button = document.querySelector("#button");
+button === null || button === void 0 ? void 0 : button.addEventListener("click", function () {
+    console.log("Click !!");
+});
+// 숙제1
+var image1 = document.querySelector(".image1");
+var changeButton = document.querySelector(".changeButton");
+changeButton === null || changeButton === void 0 ? void 0 : changeButton.addEventListener("click", function () {
+    if (image1 instanceof HTMLImageElement) {
+        image1.src =
+            "https://src.hidoc.co.kr/image/lib/2022/5/12/1652337370806_0.jpg";
+        image1.alt = "고양이";
+    }
+});
+// 숙제2
+var allLink = document.querySelectorAll(".naver");
+allLink.forEach(function (link) {
+    if (link instanceof HTMLAnchorElement) {
+        link.href = "https://kakao.com";
+        link.innerHTML = "전부 카카오로 바뀜";
+    }
+});
