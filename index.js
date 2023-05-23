@@ -219,3 +219,38 @@ var 자료2 = {
 var 자료3 = {
     name: "kim",
 };
+var 함수8강 = function (a) {
+    return 2;
+};
+var 회원정보 = {
+    name: "kim",
+    age: 22,
+    plusOne: function (a) {
+        return a + 1;
+    },
+    changeName: function (a) {
+        console.log(a);
+    },
+};
+회원정보.plusOne(2);
+회원정보.changeName("지훈");
+var cutZero = function (a) {
+    if (a.charAt(0) === "0") {
+        return a.slice(1);
+    }
+    else {
+        return a;
+    }
+};
+cutZero("0문자");
+cutZero("10문자");
+var removeDash = function (a) {
+    return Number(a.replace(/-/g, ""));
+};
+removeDash("010-1234-5678");
+var callbackCutAndDash = function (string, zero, dash) {
+    var result1 = zero(string);
+    var result2 = dash(result1);
+    return result2;
+};
+callbackCutAndDash("0323-1", cutZero, removeDash);

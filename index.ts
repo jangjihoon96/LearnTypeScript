@@ -300,3 +300,69 @@ var 자료2: { name: "kim" } = {
 var 자료3 = {
   name: "kim",
 } as const;
+
+/* -------------------------------------------------------------------------- */
+/*                                     8강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+// type alias 에 함수 type 저장해서 사용하는 방법
+// 함수표현식에서만 type alias 사용가능 (함수선언식은❌)
+type 함수8강타입 = (a: string) => number; // 파라미터로 string return값 number 지정
+let 함수8강: 함수8강타입 = function (a) {
+  return 2;
+};
+
+// object 안의 함수 타입지정 방법
+type 회원정보타입 = {
+  name: string;
+  age: number;
+  plusOne: (a: number) => number;
+  changeName: (a: string) => void;
+};
+let 회원정보: 회원정보타입 = {
+  name: "kim",
+  age: 22,
+  plusOne(a) {
+    return a + 1;
+  },
+  changeName: (a) => {
+    console.log(a);
+  },
+};
+회원정보.plusOne(2);
+회원정보.changeName("지훈");
+
+// 숙제2-1
+// 맨앞에 "0"이 들어오면 "0"을 제거하고 반환
+type CutZeroType = (a: string) => string;
+let cutZero: CutZeroType = (a) => {
+  if (a.charAt(0) === "0") {
+    return a.slice(1);
+  } else {
+    return a;
+  }
+};
+cutZero("0문자");
+cutZero("10문자");
+
+// 숙제2-2
+// 문자열 사이아 "-" 를 제거하고 숫자로 반환
+type RemoveDashType = (a: string) => number;
+let removeDash: RemoveDashType = (a) => {
+  return Number(a.replace(/-/g, ""));
+};
+removeDash("010-1234-5678");
+
+// 숙제3
+type CallbackCutAndDashType = (
+  string: string,
+  zero: CutZeroType,
+  dash: RemoveDashType
+) => number;
+let callbackCutAndDash: CallbackCutAndDashType = (string, zero, dash) => {
+  let result1 = zero(string);
+  let result2 = dash(result1);
+  return result2;
+};
+callbackCutAndDash("0323-1", cutZero, removeDash);
