@@ -562,3 +562,69 @@ let calc: Calc = {
   },
 };
 // console.log(calc.minus(1, 2));
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-1강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+// 간략한 문법 설명
+// 1. rest parameter 문법
+function rest함수(...params: number[]) {
+  console.log(params);
+}
+// rest함수(2, 3, 2, 5, 12, 2);
+
+// 2. spread operator
+let arr = [1, 2, 3];
+let arr2 = [4, 5];
+let arr3 = [...arr, ...arr2];
+
+// 3. destructuring
+let [변수1, 변수2] = ["안녕", 100];
+// console.log(변수); // '안녕' 출력
+let { student10, age10 } = { student10: true, age10: 20 };
+// console.log(student10);
+function dest함수({
+  student11,
+  age11,
+}: {
+  student11: boolean;
+  age11: number;
+}): void {
+  console.log(student11, age11);
+}
+// dest함수({ student11: true, age11: 20 });
+
+// 숙제1
+const maxValue = (...params: number[]) => {
+  // return Math.max(...params);
+  let result = 0;
+  params.forEach((num) => {
+    if (num > result) {
+      result = num;
+    }
+  });
+  return result;
+};
+// console.log(maxValue(5, 2, 1, 1000));
+
+// 숙제2
+function Hamsoo({
+  user,
+  comment,
+  admin,
+}: {
+  user: string;
+  comment: number[];
+  admin: boolean;
+}): void {
+  console.log(user, comment, admin);
+}
+// Hamsoo({ user: "kim", comment: [3, 5, 4], admin: false });
+
+// 숙제3
+const Hamsoo2 = ([a, b, c]: (number | string | boolean)[]) => {
+  console.log(a, b, c);
+};
+// Hamsoo2([40, "wine", false]);

@@ -1,4 +1,13 @@
 // 쉬운 예제
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 var 이름스트링 = "kim"; // string
 var 이름배열 = ["kim", "park"]; // array
 var 이름오브젝트 = { name: "kim" }; // object
@@ -379,3 +388,59 @@ var calc = {
     },
 };
 // console.log(calc.minus(1, 2));
+/* -------------------------------------------------------------------------- */
+/*                                     2-1강                                     */
+/* ----------------------------------------------------------------------
+---- */
+// 간략한 문법 설명
+// 1. rest parameter 문법
+function rest함수() {
+    var params = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        params[_i] = arguments[_i];
+    }
+    console.log(params);
+}
+// rest함수(2, 3, 2, 5, 12, 2);
+// 2. spread operator
+var arr = [1, 2, 3];
+var arr2 = [4, 5];
+var arr3 = __spreadArray(__spreadArray([], arr, true), arr2, true);
+// 3. destructuring
+var _a = ["안녕", 100], 변수1 = _a[0], 변수2 = _a[1];
+// console.log(변수); // '안녕' 출력
+var _b = { student10: true, age10: 20 }, student10 = _b.student10, age10 = _b.age10;
+// console.log(student10);
+function dest함수(_a) {
+    var student11 = _a.student11, age11 = _a.age11;
+    console.log(student11, age11);
+}
+// dest함수({ student11: true, age11: 20 });
+// 숙제1
+var maxValue = function () {
+    var params = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        params[_i] = arguments[_i];
+    }
+    // return Math.max(...params);
+    var result = 0;
+    params.forEach(function (num) {
+        if (num > result) {
+            result = num;
+        }
+    });
+    return result;
+};
+// console.log(maxValue(5, 2, 1, 1000));
+// 숙제2
+function Hamsoo(_a) {
+    var user = _a.user, comment = _a.comment, admin = _a.admin;
+    console.log(user, comment, admin);
+}
+// Hamsoo({ user: "kim", comment: [3, 5, 4], admin: false });
+// 숙제3
+var Hamsoo2 = function (_a) {
+    var a = _a[0], b = _a[1], c = _a[2];
+    console.log(a, b, c);
+};
+// Hamsoo2([40, "wine", false]);
