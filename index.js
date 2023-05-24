@@ -306,3 +306,58 @@ allLink.forEach(function (link) {
         link.innerHTML = "전부 카카오로 바뀜";
     }
 });
+/* -------------------------------------------------------------------------- */
+/*                                     12강                                     */
+/* ----------------------------------------------------------------------
+---- */
+var Person2 = /** @class */ (function () {
+    function Person2(a, b) {
+        this.name = a;
+        this.age = b;
+    }
+    Person2.prototype.함수 = function (a) {
+        console.log("안녕" + a);
+    };
+    return Person2;
+}());
+var 사람1 = new Person2("kim", 24);
+var 사람2 = new Person2("park", 50);
+// console.log(사람1.name);
+사람1.함수("지훈");
+// 숙제1
+var Car = /** @class */ (function () {
+    function Car(model, price) {
+        (this.model = model), (this.price = price);
+    }
+    Car.prototype.tax = function () {
+        return this.price / 10;
+    };
+    return Car;
+}());
+var sonata = new Car("Sonata", 3000);
+// console.log(sonata.tax());
+// 숙제2
+var Word = /** @class */ (function () {
+    function Word() {
+        var props = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            props[_i] = arguments[_i];
+        }
+        var numProps = [];
+        var strProps = [];
+        props.forEach(function (a) {
+            if (typeof a === "number") {
+                numProps.push(a);
+            }
+            else if (typeof a === "string") {
+                strProps.push(a);
+            }
+        });
+        this.num = numProps;
+        this.str = strProps;
+    }
+    return Word;
+}());
+var obj = new Word("kim", 1, 2, "park");
+// console.log(obj.num);
+// console.log(obj.str);

@@ -424,3 +424,64 @@ allLink.forEach((link) => {
     link.innerHTML = "전부 카카오로 바뀜";
   }
 });
+
+/* -------------------------------------------------------------------------- */
+/*                                     12강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+class Person2 {
+  name: string;
+  age: number;
+  constructor(a: string, b: number) {
+    this.name = a;
+    this.age = b;
+  }
+  함수(a: string): void {
+    console.log("안녕" + a);
+  }
+}
+
+let 사람1 = new Person2("kim", 24);
+let 사람2 = new Person2("park", 50);
+
+// console.log(사람1.name);
+사람1.함수("지훈");
+
+// 숙제1
+class Car {
+  model: string;
+  price: number;
+  constructor(model: string, price: number) {
+    (this.model = model), (this.price = price);
+  }
+  tax(): number {
+    return this.price / 10;
+  }
+}
+
+let sonata = new Car("Sonata", 3000);
+// console.log(sonata.tax());
+
+// 숙제2
+class Word {
+  num: number[];
+  str: string[];
+  constructor(...props: (number | string)[]) {
+    let numProps: number[] = [];
+    let strProps: string[] = [];
+    props.forEach((a) => {
+      if (typeof a === "number") {
+        numProps.push(a);
+      } else if (typeof a === "string") {
+        strProps.push(a);
+      }
+    });
+    this.num = numProps;
+    this.str = strProps;
+  }
+}
+
+let obj = new Word("kim", 1, 2, "park");
+// console.log(obj.num);
+// console.log(obj.str);
