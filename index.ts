@@ -485,3 +485,80 @@ class Word {
 let obj = new Word("kim", 1, 2, "park");
 // console.log(obj.num);
 // console.log(obj.str);
+
+/* -------------------------------------------------------------------------- */
+/*                                     13강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+// object 타입지정시 interface 사용가능
+// type 네모Type = {color: string, width: number}
+interface 네모Type {
+  color: string;
+  width: number;
+}
+let 네모: 네모Type = { color: "red", width: 100 };
+
+// interface 장점 : extends로 복사가능
+interface Student {
+  name: string;
+}
+interface Teacher extends Student {
+  age: number;
+}
+let 학생: Student = { name: "kim" };
+let 선생: Teacher = { name: "kim", age: 20 };
+
+// type alias에서도 extends 가능 (& 기호 사용)
+type Animal = { name: string };
+type Cat = { age: number } & Animal;
+
+// type vs interface
+// interface는 중복선언 가능
+// type은 중복선언 불가능
+interface Student2 {
+  name: string;
+}
+interface Student2 {
+  score: number;
+}
+
+// 숙제1
+interface Product {
+  brand: string;
+  serialNumber: number;
+  model: string[];
+}
+let 상품: Product = {
+  brand: "Samsung",
+  serialNumber: 1360,
+  model: ["TV", "phone"],
+};
+
+// 숙제2,3
+interface Cart {
+  product: string;
+  price: number;
+}
+interface NewCart extends Cart {
+  card: boolean;
+}
+let 장바구니: NewCart[] = [
+  { product: "청소기", price: 7000, card: false },
+  { product: "삼다수", price: 800, card: true },
+];
+
+// 숙제4
+interface Calc {
+  plus: (a: number, b: number) => number;
+  minus: (a: number, b: number) => number;
+}
+let calc: Calc = {
+  plus(a, b) {
+    return a + b;
+  },
+  minus(a, b) {
+    return a - b;
+  },
+};
+// console.log(calc.minus(1, 2));
