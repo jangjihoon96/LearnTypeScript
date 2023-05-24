@@ -121,7 +121,7 @@ function 결혼가능(money, house, charm) {
         return "결혼불가";
     }
 }
-console.log(결혼가능(700, false, "상"));
+// console.log(결혼가능(700, false, "상"));
 /* -------------------------------------------------------------------------- */
 /*                                     5강                                     */
 /* ----------------------------------------------------------------------
@@ -190,7 +190,7 @@ function 엄격한함수(x) {
 function 가위바위보(x) {
     return [x];
 }
-console.log(가위바위보("가위"));
+// console.log(가위바위보("가위"));
 // const 변수의 한계 - 오브젝트 안에 내용은 바꿀 수 있음
 // Literal type은 const 변수 업글버전 느낌
 var 변수 = "kim";
@@ -233,7 +233,6 @@ var 회원정보 = {
     },
 };
 회원정보.plusOne(2);
-회원정보.changeName("지훈");
 var cutZero = function (a) {
     if (a.charAt(0) === "0") {
         return a.slice(1);
@@ -323,7 +322,7 @@ var Person2 = /** @class */ (function () {
 var 사람1 = new Person2("kim", 24);
 var 사람2 = new Person2("park", 50);
 // console.log(사람1.name);
-사람1.함수("지훈");
+// 사람1.함수("지훈");
 // 숙제1
 var Car = /** @class */ (function () {
     function Car(model, price) {

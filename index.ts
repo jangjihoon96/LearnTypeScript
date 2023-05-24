@@ -155,7 +155,7 @@ function 결혼가능(money: number, house: boolean, charm: string): string | vo
     return "결혼불가";
   }
 }
-console.log(결혼가능(700, false, "상"));
+// console.log(결혼가능(700, false, "상"));
 
 /* -------------------------------------------------------------------------- */
 /*                                     5강                                     */
@@ -266,7 +266,7 @@ function 엄격한함수(x: "hello"): 1 | 0 {
 function 가위바위보(x: "가위" | "바위" | "보"): ("가위" | "바위" | "보")[] {
   return [x];
 }
-console.log(가위바위보("가위"));
+// console.log(가위바위보("가위"));
 
 // const 변수의 한계 - 오브젝트 안에 내용은 바꿀 수 있음
 // Literal type은 const 변수 업글버전 느낌
@@ -331,7 +331,7 @@ let 회원정보: 회원정보타입 = {
   },
 };
 회원정보.plusOne(2);
-회원정보.changeName("지훈");
+// 회원정보.changeName("지훈");
 
 // 숙제2-1
 // 맨앞에 "0"이 들어오면 "0"을 제거하고 반환
@@ -446,7 +446,7 @@ let 사람1 = new Person2("kim", 24);
 let 사람2 = new Person2("park", 50);
 
 // console.log(사람1.name);
-사람1.함수("지훈");
+// 사람1.함수("지훈");
 
 // 숙제1
 class Car {
