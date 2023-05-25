@@ -444,3 +444,29 @@ var Hamsoo2 = function (_a) {
     console.log(a, b, c);
 };
 // Hamsoo2([40, "wine", false]);
+/* -------------------------------------------------------------------------- */
+/*                                     2-2강                                     */
+/* ----------------------------------------------------------------------
+---- */
+function 함수1(a) {
+    if (a && typeof a === "string") {
+    }
+}
+function 함수2(animal) {
+    if ("swim" in animal) {
+        animal.swim;
+    }
+    else {
+        animal.fly;
+    }
+}
+// instanceof로 내로잉 가능
+// 오브젝트 instanceof 부모클래스
+var 날짜 = new Date();
+if (날짜 instanceof Date) {
+}
+function 함수3(x) {
+    if (x.wheel === "4개") {
+        console.log("x는 Car2타입");
+    }
+}

@@ -628,3 +628,47 @@ const Hamsoo2 = ([a, b, c]: (number | string | boolean)[]) => {
   console.log(a, b, c);
 };
 // Hamsoo2([40, "wine", false]);
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-2강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+function 함수1(a: string | undefined) {
+  if (a && typeof a === "string") {
+  }
+}
+
+// in 키워드로 object narrowing 가능
+// 오브젝트의 속성을 찾아줌
+type Fish = { swim: string };
+type Bird = { fly: string };
+function 함수2(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    animal.swim;
+  } else {
+    animal.fly;
+  }
+}
+
+// instanceof로 내로잉 가능
+// 오브젝트 instanceof 부모클래스
+let 날짜 = new Date();
+if (날짜 instanceof Date) {
+}
+
+// 비슷한 object타입일 경우, literal type을 만들어두면 편함
+// 차는 바퀴 4개, 바이크는 2개
+type Car2 = {
+  wheel: "4개";
+  color: string;
+};
+type Bike2 = {
+  wheel: "2개";
+  color: string;
+};
+function 함수3(x: Car2 | Bike2) {
+  if (x.wheel === "4개") {
+    console.log("x는 Car2타입");
+  }
+}
