@@ -491,3 +491,51 @@ var 함수6 = function () {
     // 이러한 함수표현식에도 never을 내뱉음
     throw new Error();
 };
+/* -------------------------------------------------------------------------- */
+/*                                     2-4강                                     */
+/* ----------------------------------------------------------------------
+---- */
+// TS의 이점
+// 객체지향언어 코딩에 필요한 문법을 제공 (class문법에서)
+// public private protected static 키워드 등
+// 1. public
+// public 붙으면 모든 자식들이 이용가능
+// 없어도됨. default값으로 사용되고 있음
+var User2 = /** @class */ (function () {
+    function User2(a) {
+        this.name = "kim";
+        this.name = a;
+    }
+    return User2;
+}());
+var 유저2 = new User2("park");
+// console.log(유저2.name);
+// 2. private
+// class 문법 중괄호 안에서만 사용가능
+// 밖으로 노출되면 안되는 정보에 사용
+// private은 수정불가가 아님 class 안에서 변경가능
+// 만약 밖에서 바꿔주고 싶으면 class안에 함수같은걸 만들어서 사용
+var User3 = /** @class */ (function () {
+    function User3(a) {
+        this.familyName = "kim";
+        this.name = a + this.familyName;
+    }
+    User3.prototype.이름변경함수 = function () {
+        this.familyName = "park";
+    };
+    return User3;
+}());
+var 유저3 = new User3("민수");
+유저3.이름변경함수();
+// console.log(유저3);
+// public 키워드를 사용하여 this. 문법 생략하기
+// this.name 생략
+var Person3 = /** @class */ (function () {
+    function Person3(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    return Person3;
+}());
+var 자식 = new Person3("kim", 24);
+console.log(자식);
