@@ -470,3 +470,24 @@ function 함수3(x) {
         console.log("x는 Car2타입");
     }
 }
+/* -------------------------------------------------------------------------- */
+/*                                     2-3강                                     */
+/* ----------------------------------------------------------------------
+---- */
+// 함수 return 값으로 never을 쓰는 경우
+// 1. endpoint가 없는 함수 (끝나지 않는 함수)
+// 2. 대부분 쓸모없음 void 타입으로 대체 가능
+// never 타입이 등장하는 경우 (1)
+function 함수5(parameter) {
+    if (typeof parameter == "string") {
+        console.log(parameter);
+    }
+    else {
+        console.log(parameter); // never 발견
+    }
+}
+// never 타입이 등장하는 경우 (2)
+var 함수6 = function () {
+    // 이러한 함수표현식에도 never을 내뱉음
+    throw new Error();
+};
