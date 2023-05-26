@@ -862,3 +862,43 @@ let 네모2 = new Square(30, 30, "red");
 // 네모.draw()
 // 네모.draw()
 // 네모.draw()
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-6강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+import { Name2, 이름4 } from "./a.js";
+// console.log(이름4);
+let 변수3: Name2 = "kim";
+
+// 2-6강 숙제1
+import { Car as Car3, Bike as Bike3 } from "./a.js";
+let k5: Car3 = {
+  wheel: 4,
+  model: "k5",
+};
+let bik: Bike3 = {
+  wheel: 2,
+  model: "bike",
+};
+
+// 2-6강 숙제2
+import { OftenFunc } from "./a.js";
+let often: OftenFunc = function (a) {
+  console.log(a);
+};
+// often({ a: 1 });
+
+// 2-6강 숙제3
+namespace Dog1 {
+  export type Dog = string;
+}
+namespace Dog2 {
+  export interface Dog {
+    name: string;
+  }
+}
+
+let dog1: Dog1.Dog = "bark";
+let dog2: Dog2.Dog = { name: "paw" };

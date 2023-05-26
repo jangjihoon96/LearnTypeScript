@@ -660,23 +660,19 @@ var 네모2 = new Square(30, 30, "red");
 네모2.draw();
 네모2.draw();
 네모2.draw();
-// 숙제3 해설
-// class Square {
-//   constructor (public width :number, public height :number, public color :string){
-//   }
-//   draw(){
-//     let a = Math.random();
-//     let square = `<div style="position:relative;
-//       top:${a * 400}px;
-//       left:${a * 400}px;
-//       width:${this.width}px;
-//       height : ${this.height}px;
-//       background:${this.color}"></div>`;
-//     document.body.insertAdjacentHTML( 'beforeend', square );
-//   }
-// }
-// let 네모 = new Square(30, 30, 'red');
-// 네모.draw()
-// 네모.draw()
-// 네모.draw()
-// 네모.draw()
+// console.log(이름4);
+var 변수3 = "kim";
+var k5 = {
+    wheel: 4,
+    model: "k5",
+};
+var bik = {
+    wheel: 2,
+    model: "bike",
+};
+var often = function (a) {
+    console.log(a);
+};
+var dog1 = "bark";
+var dog2 = { name: "paw" };
+export {};
