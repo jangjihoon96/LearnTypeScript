@@ -741,4 +741,124 @@ class Person3 {
   constructor(public name: string, public age: number) {}
 }
 let 자식 = new Person3("kim", 24);
-console.log(자식);
+// console.log(자식);
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-5강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+// protected - private과 비슷하지만 조금더 유연함
+class User4 {
+  //  private x = 10; // 확장된 class에서 x 사용불가❌
+  protected x = 10; // 확장된 class에서 x 사용가능✅
+}
+class NewUser4 extends User4 {
+  doThis() {
+    this.x = 20; // x 를 사용한 모습
+  }
+}
+
+// static - 부모 class에 직접 부여됨
+// 자식에게 물려주지 않음
+// private / protected / public +  static 가능
+class User5 {
+  static x = 10; // 부모만 사용가능 ex) User5.x
+  y = 20; // 자식만 사용가능 ex) 자식5.y
+}
+let 자식5 = new User5();
+// console.log(User5.x);
+// console.log(자식5.y);
+
+class User6 {
+  static skill = "js";
+  intro = User6.skill + "전문가입니다.";
+}
+let 유저6 = new User6();
+console.log(유저6);
+
+User6.skill = "ts";
+
+let 유저61 = new User6();
+console.log(유저61);
+
+// 숙제1. x,y,z속성의 특징말하기
+class User7 {
+  private static x = 10; // 클래스안에서만 수정가능, 부모만 사용가능
+  public static y = 20; // 어디서든 수정가능, 부모만 사용가능
+  protected z = 30; // 클래스안에서만 수정가능, 부모&확장된class 모두 사용가능
+}
+
+// 숙제2. x 속성에 숫자를 더해주는 함수가 필요합니다.
+class User8 {
+  private static x = 10;
+  public static y = 20;
+  static addOne(num: number) {
+    return User8.x + num;
+  }
+  static printX() {
+    console.log(User8.x);
+  }
+}
+User8.addOne(3); //이렇게 하면 x가 3 더해져야함
+User8.addOne(4); //이렇게 하면 x가 4 더해져야함
+User8.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
+
+// 숙제3.
+// 네모.draw()를 할 때마다
+// index.html에 가로 30px, 세로 30px, 배경색이 'red' 의 <div> 박스가
+// 가로 400px 세로 400px 공간 안에 무작위로 배치되어야합니다.
+class Square {
+  width: number;
+  height: number;
+  bgcolor: string;
+  constructor(a: number, b: number, c: string) {
+    this.width = a;
+    this.height = b;
+    this.bgcolor = c;
+  }
+  draw() {
+    // let container = document.createElement("div");
+    // container.classList.add("container");
+    let box = document.createElement("div");
+    let container = document.getElementsByClassName("box-container")[0];
+    const fieldRect = container.getBoundingClientRect();
+    const x = Math.random() * (fieldRect.width - 0) + 0;
+    const y = Math.random() * (fieldRect.height - 0) + 0;
+
+    box.style.width = this.width + "px";
+    box.style.height = this.height + "px";
+    box.style.backgroundColor = this.bgcolor;
+    box.style.position = "absolute";
+    box.style.top = x + "px";
+    box.style.left = y + "px";
+    container.appendChild(box);
+  }
+}
+let 네모2 = new Square(30, 30, "red");
+네모2.draw();
+네모2.draw();
+네모2.draw();
+네모2.draw();
+
+// 숙제3 해설
+// class Square {
+//   constructor (public width :number, public height :number, public color :string){
+//   }
+//   draw(){
+//     let a = Math.random();
+//     let square = `<div style="position:relative;
+//       top:${a * 400}px;
+//       left:${a * 400}px;
+//       width:${this.width}px;
+//       height : ${this.height}px;
+//       background:${this.color}"></div>`;
+//     document.body.insertAdjacentHTML( 'beforeend', square );
+//   }
+// }
+
+// let 네모 = new Square(30, 30, 'red');
+// 네모.draw()
+// 네모.draw()
+// 네모.draw()
+// 네모.draw()
