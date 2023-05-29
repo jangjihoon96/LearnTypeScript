@@ -675,4 +675,36 @@ var often = function (a) {
 };
 var dog1 = "bark";
 var dog2 = { name: "paw" };
+/* -------------------------------------------------------------------------- */
+/*                                     2-7강                                     */
+/* ----------------------------------------------------------------------
+---- */
+// Generic 함수 - 확장성이 있음, 매번 다른 타입 출력가능
+function 함수7(x) {
+    return x[0];
+}
+var a = 함수7([4, 2]);
+var b = 함수7(["4", "2"]);
+function 함수8(x) {
+    return x.length;
+}
+var c = 함수8(["100"]);
+// 숙제1
+function 함수9(x) {
+    console.log(x.length);
+}
+var data = '{"name" : "dog", "age" : 1 }';
+function changeObj(a) {
+    return JSON.parse(a);
+}
+console.log(changeObj(data));
+// 숙제3
+var Person4 = /** @class */ (function () {
+    function Person4(a) {
+        this.name = a;
+    }
+    return Person4;
+}());
+var a2 = new Person4("어쩌구");
+a2.name; //any 타입이 되었넹
 export {};

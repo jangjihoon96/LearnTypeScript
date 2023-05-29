@@ -902,3 +902,55 @@ namespace Dog2 {
 
 let dog1: Dog1.Dog = "bark";
 let dog2: Dog2.Dog = { name: "paw" };
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-7강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+// Generic 함수 - 확장성이 있음, 매번 다른 타입 출력가능
+function 함수7<MyType>(x: MyType[]): MyType {
+  return x[0];
+}
+let a = 함수7<number>([4, 2]);
+let b = 함수7<string>(["4", "2"]);
+// console.log(a + 1);
+// console.log(b + 1);
+
+// 타입파라미터 제한두기
+interface LengthCheck {
+  length: number;
+}
+function 함수8<MyType extends LengthCheck>(x: MyType) {
+  return x.length;
+}
+let c = 함수8<string[]>(["100"]);
+
+// 숙제1
+function 함수9<MyType extends string | string[]>(x: MyType) {
+  console.log(x.length);
+}
+// 함수9<string>("hello");
+// 함수9<string[]>(["hello", "d"]);
+
+// 숙제2
+interface Animals {
+  name: string;
+  age: number;
+}
+
+let data = '{"name" : "dog", "age" : 1 }';
+function changeObj<MyType>(a: string): MyType {
+  return JSON.parse(a);
+}
+console.log(changeObj<Animals>(data));
+
+// 숙제3
+class Person4<MyType> {
+  name;
+  constructor(a: MyType) {
+    this.name = a;
+  }
+}
+let a2 = new Person4<string>("어쩌구");
+a2.name; //any 타입이 되었넹
