@@ -707,4 +707,75 @@ var Person4 = /** @class */ (function () {
 }());
 var a2 = new Person4("어쩌구");
 a2.name; //any 타입이 되었넹
+/* -------------------------------------------------------------------------- */
+/*                                     2-10강                                     */
+/* ----------------------------------------------------------------------
+---- */
+// tuple type - 위치까지 고려하여 타입지정
+// let 멍멍: (string|boolean)[] = ['dog', true]
+var 멍멍 = ["dog", true];
+function 함수10() {
+    var x = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+    }
+    console.log(x);
+}
+// 함수10(1, "2");
+var arrTuple = [1, 2, 3];
+var arrTuple2 = __spreadArray([4, 5], arrTuple, true);
+// 숙제1
+var likethings = ["마라탕", 12000, true];
+// 숙제2
+var arr4 = [
+    "동서녹차",
+    4000,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+];
+// 숙제3
+function 함수11() {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+    console.log.apply(console, rest);
+}
+// 함수11("1", true, "2", 1, 1, 2, 3, 3);
+// 숙제4
+function 함수12() {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+    var params = rest;
+    var arrNum = [];
+    var arrStr = [];
+    params.forEach(function (item) {
+        if (typeof item === "number") {
+            arrNum.push(item);
+        }
+        else {
+            arrStr.push(item);
+        }
+    });
+    var result = [arrNum, arrStr];
+    return result;
+}
+함수12("b", 5, 6, 8, "a");
 export {};
+// function 함수12(...rest :(string|number)[]){
+//   let result :[string[], number[]] = [[],[]];
+//   rest.forEach((a)=>{
+//     if (typeof a === 'string') {
+//       result[0].push(a)
+//     } else {
+//       result[1].push(a)
+//     }
+//   })
+//   return result;
+// }

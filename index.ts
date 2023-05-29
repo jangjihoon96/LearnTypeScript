@@ -954,3 +954,73 @@ class Person4<MyType> {
 }
 let a2 = new Person4<string>("어쩌구");
 a2.name; //any 타입이 되었넹
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-10강                                     */
+/* ----------------------------------------------------------------------
+---- */
+
+// tuple type - 위치까지 고려하여 타입지정
+// let 멍멍: (string|boolean)[] = ['dog', true]
+let 멍멍: [string, boolean?] = ["dog", true];
+
+function 함수10(...x: [number, string]) {
+  console.log(x);
+}
+// 함수10(1, "2");
+
+let arrTuple = [1, 2, 3];
+let arrTuple2: [number, number, ...number[]] = [4, 5, ...arrTuple];
+
+// 숙제1
+let likethings: [string, number, boolean] = ["마라탕", 12000, true];
+
+// 숙제2
+let arr4: [string, number, ...boolean[]] = [
+  "동서녹차",
+  4000,
+  true,
+  false,
+  true,
+  true,
+  false,
+  true,
+];
+
+// 숙제3
+function 함수11(...rest: [string, boolean, ...(number | string)[]]) {
+  console.log(...rest);
+}
+// 함수11("1", true, "2", 1, 1, 2, 3, 3);
+
+// 숙제4
+function 함수12(...rest: [...(string | number)[]]) {
+  let params = rest;
+  let arrNum: number[] = [];
+  let arrStr: string[] = [];
+  params.forEach((item) => {
+    if (typeof item === "number") {
+      arrNum.push(item);
+    } else {
+      arrStr.push(item);
+    }
+  });
+  let result: [number[], string[]] = [arrNum, arrStr];
+  return result;
+}
+함수12("b", 5, 6, 8, "a");
+
+// function 함수12(...rest :(string|number)[]){
+
+//   let result :[string[], number[]] = [[],[]];
+
+//   rest.forEach((a)=>{
+//     if (typeof a === 'string') {
+//       result[0].push(a)
+//     } else {
+//       result[1].push(a)
+//     }
+//   })
+
+//   return result;
+// }
