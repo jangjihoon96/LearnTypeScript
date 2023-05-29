@@ -767,7 +767,6 @@ function 함수12() {
     return result;
 }
 함수12("b", 5, 6, 8, "a");
-export {};
 // function 함수12(...rest :(string|number)[]){
 //   let result :[string[], number[]] = [[],[]];
 //   rest.forEach((a)=>{
@@ -779,3 +778,5 @@ export {};
 //   })
 //   return result;
 // }
+var h = "kim";
+export {};

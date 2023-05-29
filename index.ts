@@ -1024,3 +1024,5 @@ function 함수12(...rest: [...(string | number)[]]) {
 
 //   return result;
 // }
+
+let h: Dog = "kim";
