@@ -1075,3 +1075,76 @@ class Car5 implements Car5Type {
     return a * 0.1;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-13강                                     */
+
+/* ----------------------------------------------------------------------
+---- */
+
+// index signature
+// object 타입지정 한번에 가능
+// 너무 유연하게 지정시 ts의 장점이 없어질 수 있음
+interface StringOnly {
+  [key: string]: string | number;
+  [key: number]: string;
+  age: "20";
+  count: number;
+}
+let user2: StringOnly = {
+  name: "kim",
+  age: "20",
+  count: 3,
+  location: "seoul",
+  0: "hi",
+  1: "13",
+};
+// user2[0] // 'hi'출력
+
+// recursive하게 타입 만드는 방법
+// interface MyCssType {
+//   "font-size": {
+//     "font-size": {
+//       "font-size": number;
+//     };
+//   };
+// }
+interface MyCssType {
+  "font-size": MyCssType | number;
+}
+let css: MyCssType = {
+  "font-size": {
+    "font-size": {
+      "font-size": 14,
+    },
+  },
+};
+
+// 숙제1
+interface Obj2OnlyType {
+  [key: string]: string | number;
+}
+let obj2: Obj2OnlyType = {
+  model: "k5",
+  brand: "kia",
+  price: 6000,
+  year: 2030,
+  date: "6월",
+  percent: "5%",
+  dealer: "김차장",
+};
+
+// 숙제2
+interface FontNum {
+  "font-size": number;
+  [key: string]: FontNum | number;
+}
+let obj3: FontNum = {
+  "font-size": 10,
+  secondary: {
+    "font-size": 12,
+    third: {
+      "font-size": 14,
+    },
+  },
+};

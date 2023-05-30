@@ -799,4 +799,37 @@ var Car5 = /** @class */ (function () {
     };
     return Car5;
 }());
+var user2 = {
+    name: "kim",
+    age: "20",
+    count: 3,
+    location: "seoul",
+    0: "hi",
+    1: "13",
+};
+var css = {
+    "font-size": {
+        "font-size": {
+            "font-size": 14,
+        },
+    },
+};
+var obj2 = {
+    model: "k5",
+    brand: "kia",
+    price: 6000,
+    year: 2030,
+    date: "6월",
+    percent: "5%",
+    dealer: "김차장",
+};
+var obj3 = {
+    "font-size": 10,
+    secondary: {
+        "font-size": 12,
+        third: {
+            "font-size": 14,
+        },
+    },
+};
 export {};
