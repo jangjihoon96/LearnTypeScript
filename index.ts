@@ -1039,3 +1039,39 @@ import { Age as TestAge } from "./test.d";
 let age1: TestAge;
 
 let 나이28: CommonAge = 28;
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-12강                                     */
+
+/* ----------------------------------------------------------------------
+---- */
+
+// implements
+// class 문법 사용시 interface 안에 들어있는 속성을 갖고 있는지 확인해주는 역할
+// class에 타입을 할당하고 변형시키는 역할❌
+interface Car4Type {
+  model: string;
+  price: number;
+}
+class Car4 implements Car4Type {
+  model: string;
+  price: number = 1000;
+  constructor(a: string) {
+    this.model = a;
+  }
+}
+let 붕붕이 = new Car4("morning");
+
+interface Car5Type {
+  model: string;
+  tax: (price: number) => number;
+}
+
+// implements는 class의 타입을 체크하는 용도지 할당하는게 아님
+class Car5 implements Car5Type {
+  model; // any 타입됨
+  tax(a) {
+    // a 파라미터는 any 타입됨
+    return a * 0.1;
+  }
+}

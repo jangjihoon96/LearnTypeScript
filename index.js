@@ -781,4 +781,22 @@ function 함수12() {
 var h = "kim";
 var age1;
 var 나이28 = 28;
+var Car4 = /** @class */ (function () {
+    function Car4(a) {
+        this.price = 1000;
+        this.model = a;
+    }
+    return Car4;
+}());
+var 붕붕이 = new Car4("morning");
+// implements는 class의 타입을 체크하는 용도지 할당하는게 아님
+var Car5 = /** @class */ (function () {
+    function Car5() {
+    }
+    Car5.prototype.tax = function (a) {
+        // a 파라미터는 any 타입됨
+        return a * 0.1;
+    };
+    return Car5;
+}());
 export {};
