@@ -779,4 +779,6 @@ function 함수12() {
 //   return result;
 // }
 var h = "kim";
+var age1;
+var 나이28 = 28;
 export {};
