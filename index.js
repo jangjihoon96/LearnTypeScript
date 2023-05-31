@@ -841,4 +841,13 @@ var obj3 = {
 var object = { name: "kim", age: 20 };
 Object.keys(object);
 var p = "age";
+var a10; // string
+var a11; // unknown
+var b추출값넣을변수; // string
+var f10;
+var f11;
+var ex1;
+var ex2;
+var aaa; //이러면 number가 이 자리에 남음
+var bbb; //이러면 string이 이 자리에 남음
 export {};

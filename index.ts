@@ -1203,3 +1203,48 @@ type 유연한Changer<MyType, T> = {
 type NewBoard = 유연한Changer<Board, string>;
 type NewBoard2 = 유연한Changer<Board, number>;
 type NewBoard3 = 유연한Changer<Board, boolean>;
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-15강                                     */
+
+/* ----------------------------------------------------------------------
+---- */
+
+// 타입을 조건에 따라 사용가능
+type Age10<T> = T extends string ? string : unknown;
+let a10: Age10<string>; // string
+let a11: Age10<number>; // unknown
+
+// infer 키워드
+// 조건문에서 쓸 수 있는 키워드
+
+// 1. 타입을 왼쪽에서 추출 가능
+type 타입추출<T> = T extends infer R ? R : unknown;
+type 추출a = 타입추출<string>;
+
+// 2. array 내부의 타입만 뽑을 수 있음
+type 타입추출2<T> = T extends (infer R)[] ? R : unknown;
+type 추출b = 타입추출2<string[]>;
+let b추출값넣을변수: 추출b; // string
+
+// 3. 함수를 넣으면 함수의 return 타입만 뽑을 수 있음
+type 타입추출3<T> = T extends () => infer R ? R : unknown;
+type 추출c = 타입추출3<() => void>;
+// 3번 같은 경우 ReturnType 이라는 기본 함수 쓰면 돼서 쓸모없음
+type 리턴c = ReturnType<() => void>;
+
+// 파라미터로 array 자료를 입력하면 array의 첫 자료의 타입을 그대로 남겨주고,
+// array 자료가 아니라 다른걸 입력하면 any 타입을 남겨주는 타입
+type FirstItem<T> = T extends any[] ? T[0] : any;
+let f10: FirstItem<string[]>;
+let f11: FirstItem<number>;
+
+// 숙제1
+type Example<T> = T extends [string, ...any] ? T[0] : unknown;
+let ex1: Example<[string, number]>;
+let ex2: Example<[boolean, number]>;
+
+// 숙제2
+type 타입뽑기<T> = T extends (x: infer R) => void ? R : unknown;
+let aaa: 타입뽑기<(x: number) => void>; //이러면 number가 이 자리에 남음
+let bbb: 타입뽑기<(x: string) => void>; //이러면 string이 이 자리에 남음
