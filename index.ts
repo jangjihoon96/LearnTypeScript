@@ -1148,3 +1148,58 @@ let obj3: FontNum = {
     },
   },
 };
+
+/* -------------------------------------------------------------------------- */
+/*                                     2-14강                                     */
+
+/* ----------------------------------------------------------------------
+---- */
+
+// keyof
+// key값을 전부 가져오는 키워드
+
+let object = { name: "kim", age: 20 };
+Object.keys(object);
+
+interface Person2 {
+  age: number;
+  name: string;
+}
+type Person2Keys = keyof Person2;
+let p: Person2Keys = "age";
+
+// 타입을 만들었는데, 전부 string으로 바꾸려면
+type Car6 = {
+  color: boolean;
+  model: boolean;
+  price: boolean | number;
+};
+// 타입 변환기(맵핑)
+type TypeChanger<MyType> = {
+  [key in keyof MyType]: string;
+};
+type 새로운타입 = TypeChanger<Car6>;
+
+// 숙제1
+type Bus = {
+  color: string;
+  model: boolean;
+  price: number;
+};
+type BusChanger<T> = {
+  [key in keyof T]: string | number;
+};
+type NewBus = BusChanger<Bus>;
+
+// 숙제2
+type Board = {
+  color: string;
+  model: boolean;
+  price: number;
+};
+type 유연한Changer<MyType, T> = {
+  [key in keyof MyType]: T;
+};
+type NewBoard = 유연한Changer<Board, string>;
+type NewBoard2 = 유연한Changer<Board, number>;
+type NewBoard3 = 유연한Changer<Board, boolean>;
